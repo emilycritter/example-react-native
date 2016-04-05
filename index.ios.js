@@ -8,6 +8,8 @@ import React, {
   Component,
   Image,
   ListView,
+  Navigator,
+  ScrollView,
   StyleSheet,
   Text,
   View
@@ -48,11 +50,14 @@ class PracticeReactApp extends Component {
     }
 
     return (
-      <ListView
-        dataSource={this.state.dataSource}
-        renderRow={this.renderMovie}
-        style={styles.listView}
-      />
+      <ScrollView style={styles.scrollY}>
+        <Text style={styles.heading}>Movies</Text>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={this.renderMovie}
+          style={styles.listView}
+        />
+      </ScrollView>
     );
   }
 
@@ -90,6 +95,11 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  heading: {
+    textAlign: 'center',
+    fontSize: 36,
+    marginTop: 18
+  },
   rightContainer: {
    flex: 1,
   },
@@ -109,6 +119,9 @@ var styles = StyleSheet.create({
     paddingTop: 20,
     backgroundColor: '#F5FCFF',
   },
+  scrollY : {
+    flex: 1,
+  }
 });
 
 AppRegistry.registerComponent('PracticeReactApp', () => PracticeReactApp);
